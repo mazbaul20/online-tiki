@@ -40,7 +40,7 @@
         <label for="distance" class="form-label">Effect From *</label>
         <input type="date" class="form-control" name="distance" id="distance" required>
       </div>
-      <button type="submit" class="btn btn-primary">Create Fare</button>
+      <button type="submit" class="btn btn-primary">Update Fare</button>
     </form>
   </div>
 @endsection

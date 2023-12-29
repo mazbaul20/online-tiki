@@ -6,12 +6,28 @@
     <form action="" method="post">
       @csrf
       <div class="mb-3">
-        <label for="productName" class="form-label">Base Location *</label>
+        <label for="productName" class="form-label">Bus No. *</label>
         <select name="product_id" class="form-select" aria-label="Default select example" required>
             <option disabled selected>Select one</option>
             {{-- @foreach ($products as $item)
                 <option value="{{ $item->id }}">{{$item->product_name}}</option>
             @endforeach --}}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="tripdate" class="form-label">Trip Date *</label>
+        <input type="date" class="form-control" name="tripdate" id="tripdate" required>
+      </div>
+      <div class="mb-3">
+        <label for="productName" class="form-label">Trip Time *</label>
+        <select name="product_id" class="form-select" aria-label="Default select example" required>
+            <option disabled selected>Select one</option>
+            <option value="07:00 AM">07:00 AM</option>
+            <option value="08:00 AM">08:00 AM</option>
+            <option value="09:00 AM">09:00 AM</option>
+            <option value="07:00 PM">07:00 PM</option>
+            <option value="08:00 PM">08:00 PM</option>
+            <option value="09:00 PM">09:00 PM</option>
         </select>
       </div>
       <div class="mb-3">
@@ -24,7 +40,7 @@
         </select>
       </div>
       <div class="mb-3">
-        <label for="productName" class="form-label">Destination *</label>
+        <label for="productName" class="form-label">End To *</label>
         <select name="product_id" class="form-select" aria-label="Default select example" required>
             <option disabled selected>Select one</option>
             {{-- @foreach ($products as $item)
@@ -32,15 +48,7 @@
             @endforeach --}}
         </select>
       </div>
-      <div class="mb-3">
-        <label for="distance" class="form-label">Fare Amount *</label>
-        <input type="number" class="form-control" name="distance" id="distance" placeholder="distance in km..." required>
-      </div>
-      <div class="mb-3">
-        <label for="distance" class="form-label">Effect From *</label>
-        <input type="date" class="form-control" name="distance" id="distance" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Create Fare</button>
+      <button type="submit" class="btn btn-primary">Create Trip</button>
     </form>
   </div>
 @endsection
