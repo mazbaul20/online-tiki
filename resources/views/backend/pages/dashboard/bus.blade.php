@@ -5,7 +5,7 @@
     <div class="d-flex">
       <h1>Product Data</h1>
       <div class="position-absolute end-0 me-4">
-        <a class="btn btn-primary" href="">Add New</a>
+        <a class="btn btn-primary" href="{{ route('bus.create') }}">Add New</a>
       </div>
     </div>
   </div>
@@ -21,28 +21,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="col">SL</th>
-        <td scope="col">Bus No</td>
-        <td scope="col">Supervisor Name</td>
-        <td scope="col">Supervisor Phone Number</td>
-        <td scope="col">Created At</td>
-        <td scope="col">
-          <a href="#" class="btn btn-primary">Edit</a>
-        </td>
-      </tr>
-      {{-- @foreach($products as $item)
+      @foreach ($bus as $item)
         <tr>
-          <th scope="row">{{ $item->id }}</th>
-          <td>{{ $item->product_name }}</td>
-          <td>{{ $item->quantity }}</td>
-          <td>{{ $item->price }}</td>
-          <td class="px-6 py-4 text-right">
-            <a href="{{ route('product.edit.page',$item->id) }}" class="btn btn-primary">Edit</a>
-            <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger">Delete</a>
+          <th scope="col">{{ $loop->iteration }}</th>
+          <td scope="col">{{ $item->bus_no }}</td>
+          <td scope="col">{{ $item->supervisor_name }}</td>
+          <td scope="col">{{ $item->supervisor_number }}</td>
+          <td scope="col">{{ $item->created_at }}</td>
+          <td scope="col">
+            <a href="{{ route('bus.edit',$item->id) }}" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
           </td>
         </tr>
-      @endforeach --}}
+      @endforeach
     </tbody>
   </table>
 @endsection

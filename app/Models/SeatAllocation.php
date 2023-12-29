@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SeatAllocation extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'trip_id', 'trip_from', 'trip_to', 'seat_no', 'fare_per_seat'];
+    protected $fillable = ['user_id', 'trip_id', 'trip_from', 'trip_to', 'seat_no', 'fare_per_seat','total_pare'];
 
     public function user():BelongsTo{
         return $this->belongsTo(User::class);

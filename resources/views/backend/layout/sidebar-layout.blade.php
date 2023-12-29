@@ -24,7 +24,7 @@
       </li>
       <li class="menu-label">Pages</li>
       <li>
-        <a class="has-arrow" href="">
+        <a class="has-arrow" href="{{ route('location.page') }}">
           <div class="parent-icon">
             <ion-icon name="home-outline"></ion-icon>
           </div>
@@ -32,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a class="has-arrow" href="">
+        <a class="has-arrow" href="{{ route('bus.page') }}">
           <div class="parent-icon">
             <ion-icon name="home-outline"></ion-icon>
           </div>

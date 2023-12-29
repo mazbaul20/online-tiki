@@ -3,21 +3,21 @@
   <!--start breadcrumb-->
   <h1 class="text-center">Create Location</h1>
   <div style="width:500px; margin:0px auto;">
-    <form action="" method="post">
-      {{-- @csrf --}}
+    <form action="{{ route('bus.update',$businfo->id) }}" method="post">
+      @csrf
       <div class="mb-3">
-        <label for="placeName" class="form-label">Bus No. *</label>
-        <input type="text" class="form-control" name="placeName" id="placeName" placeholder="place name..." required>
+        <label for="busNo" class="form-label">Bus No. *</label>
+        <input type="number" class="form-control" value="{{ $businfo->bus_no }}" name="busNo" id="busNo" required>
       </div>
       <div class="mb-3">
-        <label for="distance" class="form-label">Supervisor Name *</label>
-        <input type="number" class="form-control" name="distance" id="distance" placeholder="distance in km..." required>
+        <label for="supervisorName" class="form-label">Supervisor Name *</label>
+        <input type="text" class="form-control" value="{{ $businfo->supervisor_name }}" name="supervisorName" id="supervisorName" required>
       </div>
       <div class="mb-3">
-        <label for="stopageOrder" class="form-label">Supervisor Number *</label>
-        <input type="number" class="form-control" name="stopageOrder" id="stopageOrder" placeholder="stopage order..." required>
+        <label for="supervisorNumber" class="form-label">Supervisor Number *</label>
+        <input type="number" class="form-control" value="{{ $businfo->supervisor_number }}" name="supervisorNumber" id="supervisorNumber" required>
       </div>
-      <button type="submit" class="btn btn-primary">Location Create</button>
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
   </div>
 @endsection

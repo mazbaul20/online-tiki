@@ -5,7 +5,7 @@
     <div class="d-flex">
       <h1>Product Data</h1>
       <div class="position-absolute end-0 me-4">
-        <a class="btn btn-primary" href="">Add New</a>
+        <a class="btn btn-primary" href="{{ route('location.create') }}">Add New</a>
       </div>
     </div>
   </div>
@@ -21,28 +21,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="col">SL</th>
-        <td scope="col">Place Name</td>
-        <td scope="col">Distance In KM</td>
-        <td scope="col">Stopage Order</td>
-        <td scope="col">Created At</td>
-        <td scope="col">
-          <a href="#" class="btn btn-primary">Edit</a>
-        </td>
-      </tr>
-      {{-- @foreach($products as $item)
+      @foreach ($locations as $location)
         <tr>
-          <th scope="row">{{ $item->id }}</th>
-          <td>{{ $item->product_name }}</td>
-          <td>{{ $item->quantity }}</td>
-          <td>{{ $item->price }}</td>
-          <td class="px-6 py-4 text-right">
-            <a href="{{ route('product.edit.page',$item->id) }}" class="btn btn-primary">Edit</a>
-            <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger">Delete</a>
+          <th scope="col">{{ $loop->iteration }}</th>
+          <td scope="col">{{ $location->place_name }}</td>
+          <td scope="col">{{ $location->distance_km }}</td>
+          <td scope="col">{{ $location->stopage_order }}</td>
+          <td scope="col">{{ $location->created_at }}</td>
+          <td scope="col">
+            <a href="{{ route('location.edit',$location->id) }}" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
           </td>
         </tr>
-      @endforeach --}}
+      @endforeach
     </tbody>
   </table>
 @endsection
