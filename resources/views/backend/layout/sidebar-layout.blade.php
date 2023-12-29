@@ -48,7 +48,7 @@
         </a>
       </li>
       <li>
-        <a class="has-arrow" href="">
+        <a class="has-arrow" href="#">
           <div class="parent-icon">
             <ion-icon name="home-outline"></ion-icon>
           </div>
