@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\FareController;
+use App\Http\Controllers\TripController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\DashboardController;
@@ -58,6 +59,15 @@ Route::middleware('auth')->group(function(){
         Route::post('/store','Store')->name('fare.store');
         Route::get('/fare/edit/{id}','Edit')->name('fare.edit');
         Route::post('/update/{id}','Update')->name('fare.update');
+        Route::get('/delete/{id}','Delete');
+    });
+    //trip crud
+    Route::controller(TripController::class)->group(function(){
+        Route::get('/trip','FarePage')->name('trip.page');
+        Route::get('/trip/create','Create')->name('trip.create');
+        Route::post('/store','Store')->name('trip.store');
+        Route::get('/trip/edit/{id}','Edit')->name('trip.edit');
+        Route::post('/update/{id}','Update')->name('trip.update');
         Route::get('/delete/{id}','Delete');
     });
 });
