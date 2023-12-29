@@ -26,11 +26,11 @@ class LocationController extends Controller
     }//end method
 
     function Edit($id){
-        $location = Location::findOrFail($id);
+        $location = Location::find($id);
         return view('backend.pages.dashboard.location-edit', compact('location'));
     }//end method
-    function Update(Request $request, $id){
-        Location::where('id',$id)->update([
+    function Update(Request $request){
+        Location::where('id',$request->input('id'))->update([
             'place_name' => $request->input('placeName'),
             'distance_km' => $request->input('distance'),
             'stopage_order' => $request->input('stopageOrder')

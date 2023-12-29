@@ -3,7 +3,7 @@
   <!--start breadcrumb-->
   <h1 class="text-center">Create Location</h1>
   <div style="width:500px; margin:0px auto;">
-    <form action="{{ route('location.update',$location->id) }}" method="post">
+    <form action="{{ route('location.update.now') }}" method="post">
       @csrf
       <input type="hidden" name="id" value="{{ $location->id }}">
       <div class="mb-3">

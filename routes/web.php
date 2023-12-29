@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\FareController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\DashboardController;
@@ -38,15 +39,25 @@ Route::middleware('auth')->group(function(){
         Route::get('/location/create','Create')->name('location.create');
         Route::post('/store','Store')->name('location.store');
         Route::get('/location/edit/{id}','Edit')->name('location.edit');
-        Route::post('/update/{id}','Update')->name('location.update');
+        Route::post('/update','Update')->name('location.update.now');
         Route::get('/delete/{id}','Delete');
     });
+    //bus crud
     Route::controller(BusController::class)->group(function(){
         Route::get('/bus','BusPage')->name('bus.page');
         Route::get('/bus/create','Create')->name('bus.create');
         Route::post('/store','Store')->name('bus.store');
         Route::get('/bus/edit/{id}','Edit')->name('bus.edit');
         Route::post('/update/{id}','Update')->name('bus.update');
+        Route::get('/delete/{id}','Delete');
+    });
+    //fare crud
+    Route::controller(FareController::class)->group(function(){
+        Route::get('/fare','FarePage')->name('fare.page');
+        Route::get('/fare/create','Create')->name('fare.create');
+        Route::post('/store','Store')->name('fare.store');
+        Route::get('/fare/edit/{id}','Edit')->name('fare.edit');
+        Route::post('/update/{id}','Update')->name('fare.update');
         Route::get('/delete/{id}','Delete');
     });
 });

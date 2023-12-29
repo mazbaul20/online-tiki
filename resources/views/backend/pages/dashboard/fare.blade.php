@@ -5,7 +5,7 @@
     <div class="d-flex">
       <h1>Product Data</h1>
       <div class="position-absolute end-0 me-4">
-        <a class="btn btn-primary" href="">Add New</a>
+        <a class="btn btn-primary" href="{{ route('fare.create') }}">Add New</a>
       </div>
     </div>
   </div>
@@ -23,16 +23,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="col">SL</th>
-        <td scope="col">Bus No</td>
-        <td scope="col">Supervisor Name</td>
-        <td scope="col">Supervisor Phone Number</td>
-        <td scope="col">Created At</td>
-        <td scope="col">
-          <a href="#" class="btn btn-primary">Edit</a>
-        </td>
-      </tr>
+      @foreach ($fares as $fare)
+        <tr>
+          <th scope="col">{{ $loop->iteration }}</th>
+          <td scope="col">{{ $fare->baseLocation->place_name }}</td>
+          <td scope="col">{{ $fare->startFrom->place_name }}</td>
+          <td scope="col">{{ $fare->destinationLocation->place_name }}</td>
+          <td scope="col">Tk. {{ $fare->fare_amt }}</td>
+          <td scope="col">{{ $fare->effect_from }}</td>
+          <td scope="col">{{ $fare->created_at }}</td>
+          <td scope="col">
+            <a href="#" class="btn btn-primary">Edit</a>
+          </td>
+        </tr>
+      @endforeach
       {{-- @foreach($products as $item)
         <tr>
           <th scope="row">{{ $item->id }}</th>
