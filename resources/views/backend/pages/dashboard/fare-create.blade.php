@@ -42,8 +42,8 @@
       </div>
       {{-- Effective Date --}}
       <div class="mb-3">
-        <label for="distance" class="form-label">Effect From *</label>
-        <input type="date" class="form-control" name="distance" id="distance" required>
+        <label for="effect_from" class="form-label">Effect From *</label>
+        <input type="date" class="form-control" name="effect_from" id="effect_from" required>
       </div>
       <button type="submit" class="btn btn-primary">Create Fare</button>
     </form>

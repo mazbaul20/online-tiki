@@ -3,7 +3,7 @@
   <!--start breadcrumb-->
   <div class="positon-relative">
     <div class="d-flex">
-      <h1>Product Data</h1>
+      <h1>Fare Data</h1>
       <div class="position-absolute end-0 me-4">
         <a class="btn btn-primary" href="{{ route('fare.create') }}">Add New</a>
       </div>
@@ -33,22 +33,10 @@
           <td scope="col">{{ $fare->effect_from }}</td>
           <td scope="col">{{ $fare->created_at }}</td>
           <td scope="col">
-            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="{{ route('fare.edit',$fare->id) }}" class="btn btn-primary">Edit</a>
           </td>
         </tr>
       @endforeach
-      {{-- @foreach($products as $item)
-        <tr>
-          <th scope="row">{{ $item->id }}</th>
-          <td>{{ $item->product_name }}</td>
-          <td>{{ $item->quantity }}</td>
-          <td>{{ $item->price }}</td>
-          <td class="px-6 py-4 text-right">
-            <a href="{{ route('product.edit.page',$item->id) }}" class="btn btn-primary">Edit</a>
-            <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
-      @endforeach --}}
     </tbody>
   </table>
 @endsection

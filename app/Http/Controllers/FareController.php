@@ -27,25 +27,28 @@ class FareController extends Controller
             'effect_from' => $request->input('effect_from'),
         ]);
         Toastr::success('Fare created successful!', 'Create', ["positionClass" => "toast-top-center"]);
-        return redirect()->route('bus.page');
+        return redirect()->route('fare.page');
     }//end method
 
     function Edit($id){
-        $businfo = Fare::findOrFail($id);
-        return view('backend.pages.dashboard.bus-edit', compact('businfo'));
+        $locations = Location::all();
+        $fare = Fare::findOrFail($id);
+        return view('backend.pages.dashboard.fare-edit', compact('fare','locations'));
     }//end method
     function Update(Request $request, $id){
         Fare::where('id',$id)->update([
-            'bus_no' => $request->input('busNo'),
-            'supervisor_name' => $request->input('supervisorName'),
-            'supervisor_number' => $request->input('supervisorNumber')
+            'base_location' => $request->input('base_location'),
+            'start_from' => $request->input('start_from'),
+            'destination' => $request->input('destination'),
+            'fare_amt' => $request->input('fare_amt'),
+            'effect_from' => $request->input('effect_from')
         ]);
-        Toastr::success('Location updated successful!', 'Update', ["positionClass" => "toast-top-center"]);
-        return redirect()->route('bus.page');
+        Toastr::success('Fare updated successful!', 'Update', ["positionClass" => "toast-top-center"]);
+        return redirect()->route('fare.page');
     }//end method
     function Delete($id){
         Fare::where('id',$id)->delete();
-        Toastr::success('Location deleted successful!', 'Delete', ["positionClass" => "toast-top-center"]);
+        Toastr::success('Fare deleted successful!', 'Delete', ["positionClass" => "toast-top-center"]);
         return redirect()->back();
     }//end method
 }
